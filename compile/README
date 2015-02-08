@@ -1,0 +1,35 @@
+snake-farm
+
+$ directive-file name??(def=DIR.DAT             )
+
+hifield_g2p_dir.dat
+
+$ data from t(erminal) or d(isk) (def.=t):
+d
+$ trajectory-file name?(def=TRAJ.DAT            )
+ran_traj.dat
+
+$ o.k. ? (y or n , def.=y)
+y
+
+p(lot),d(isplay),o(utput for mudifi),u(ser defined output)
+,r(aytrace style output),n(ew problem),
+ m(ove the plot),c(lip the plot),l(ightning),e(nvelope)
+s(ection),b(are plot) or q(uit)? (def=p)
+
+  //try different options
+  //Most important one is o: generate outputs for mudifi fit
+
+ p(lot),d(isplay),o(utput for mudifi),u(ser defined output)
+,r(aytrace style output),n(ew problem),
+ m(ove the plot),c(lip the plot),l(ightning),e(nvelope)
+s(ection),b(are plot) or q(uit)? (def=p)
+o
+$input,output e-p index(def= 0, 32)?
+0,31
+$ output-file name?(def=mud.mud             )
+fp.mud
+ fp.mud  
+
+  //These lines are counted as e-p index
+y,.001,0.,none,0.,0.,0.,0.,0.,0.    

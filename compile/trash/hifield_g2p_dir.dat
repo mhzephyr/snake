@@ -1,0 +1,339 @@
+ 20.,40.,20.         ;MINSTEP,MAXSTEP,STEPSIZE
+ false,true         ,spin raytracing
+ -1., 0.9382731       ,particle z and mass (GeV)
+ 2.7928456,9.578756e7,1.,.93827231   unit: magneton, rad s-1 T-1, - , GeV
+INPUT DRIFT:
+INPUTDRI
+absolute
+0.,0.,0.
+0.,0.,0.
+-100.,-1.,-120.
+ 100., 1., 120.
+1
+0
+0
+none
+r
+0.
+0
+list
+y,.001,0.,none,0.,0.,0.,0.,0.,0.      
+eol
+helmholtz:     
+helmholt
+absolute
+0., 00.,0.         ;ORIGIN X,Y,Z
+0.0, -84.31,0.             ;ANGLES /Z,X,Y
+-500.,-500.,-500.   ;MIN BOX X,Y,Z
+500., 500., 1680.     ;MAX BOX
+3                       ;METHOD=RUNGE-KHUTA
+2                       ;TYPE=ANALYTICAL
+19                      ;INDEX=helholtz coil
+none
+r
+0.         ;2.0 ;5.0  ;1.1765 ;4.0 ;FIELD MULTIP. FACTOR 1.8215
+2                       ;# OF ADDITIONAL DATA 1:current in Amps, 2: Radius in m
+1000917.
+0.180
+list
+z,   25., 0.,none,0.,0.,0.,0.,0.,0.
+z,  150., 0.,none,0.,0.,0.,0.,0.,0.
+z, 580., 0.,none,0.,0.,0.,0.,0.,0.
+eol
+septum:******************************************3
+septumma                ;name of the region (char*8)
+absolute                ;name of the reference region (char*8)
+0.,1555.69, 155.00            ;origin of region in refrence region 
+0., 5.69, 90.                ;rotations /z,x,y (x is beta)
+ -401.,-1000.,-101.      ;minbox x,y,z
+ 401., 1000., 101.        ;maxbox
+3                       ;method = runge-khuta
+3                       ;itype = map
+2                       ;indfi = 2d-map
+Sep_903A.map                 
+r
+-1.33153          ;field multiplying factor -1.49948677151428
+0                       ;number of additional data
+list                    ;method of determining endplanes
+y, -478.5, -2.402,none, 94.2,409.7,120.,120.,-120.,-120.
+y, 0., 0.,none,0.,0.,0.,0.,0.,0.
+y, 478.5, -2.402,none,130.5,389.64,120.,120.,-120.,-120.
+y, 640., -2.402,none,0.,0.,0.,0.,0.,0.
+eol                     ;end of list
+oldtarget:*****************************************4 dummy region
+oldtargt                 ;name of the region (char*8)
+absolute                 ;name of the reference region (char*8)
+0., 872.61, 86.94         ;origin of region in refrence region 
+0.,-6.81,0.,               ;rotations /z,x,y (z is -alpha)
+-200., -100.,-200.      ;minbox x,y,z
++200., +1800.,+200.      ;maxbox
+1                   ;                    
+0                   ;itype = map
+0                   ;indfi = 3d-map
+none 
+r
+0                 ;field multiplying factor
+0                  ;number of additional data
+list                ;method of determining endplanes 
+y,1380.,0.,none,300.,300.,0.,0.,0.,0.
+eol                 ;end of list
+Q1entrance:****************************************5
+Q1ENTRAN            ;NAME OF THE REGION (CHAR*8)
+oldtargt            ;NAME OF THE REFERENCE REGION (CHAR*8)
+0.,1600.0,0.,           ;ORIGIN OF REGION IN REFRENCE REGION: checked 10/5/98 -jjl
+0.,0.,0.,           ;ROTATIONS
+-300.,-1000.,-150.   ;MINBOX X,Y,Z
+ 300., 475.,+150.   ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+7                   ;INDFI = ENTRANCE MULTIPOLE
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+6                   ;NUMBER OF ADDITIONAL DATA
+-0.915           ;QUAD FIELD AT R 
+0.0                 ;HEX FIELD AT R
+0.0                 ;OCT FIELD AT R
+0.0                 ;DEC FIELD AT R
+0.0                 ;DDEC FIELD AT R
+150.                ;R IN mm
+list                ;METHOD OF DETERMINING ENDPLANES
+y,-200., 0.,none,150.,150.,0.,0.,0.,0.
+y,470., 0. ,none,150.,150.,0.,0.,0.,0.
+eol                 ;END OF list
+Q1exit:*************************************************6
+Q1EXIT__            ;NAME OF THE REGION (CHAR*8)
+Q1ENTRAN            ;NAME OF THE REFERENCE REGION (CHAR*8)
+0.,941.3,0.,           ;ORIGIN OF REGION IN REFRENCE REGION: checked 10/5/98 -jjl
+0.,0.,0.,           ;ROTATIONS
+-300.,-475.,-150.   ;MINBOX X,Y,Z
+ 300., 20.,+150.   ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+9                   ;INDFI = EXIT MULTIPOLE
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+6                   ;NUMBER OF ADDITIONAL DATA
+-0.915           ;QUAD FIELD AT R 
+0.0                 ;HEX FIELD AT R
+0.0                 ;OCT FIELD AT R
+0.0                 ;DEC FIELD AT R
+0.0                 ;DDEC FIELD AT R
+150.                ;R IN mm
+list                ;METHOD OF DETERMINING ENDPLANES
+y,0., 0. ,none,150.,150.,0.,0.,0.,0.
+eol                 ;END OF list
+Q1Q2:****************************************************7
+Q1Q2____            ;NAME OF THE REGION (CHAR*8)
+Q1EXIT__            ;NAME OF THE REFERENCE REGION (CHAR*8)
+0.,0.,0.,        ;ORIGIN OF REGION IN REFRENCE REGION
+0.,0.,0.,           ;ROTATIONS
+-320.,-20.,-320.    ;MINBOX X,Y,Z
+ 320., 1172.06,+320.  ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+10                  ;INDFI = Q-Q OVERLAP
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+13                  ;NUMBER OF ADDITIONAL DATA
+-0.915           ;QUAD FIELD AT R (Tesla):
+0.0                 ;HEX FIELD AT R
+0.0                 ;OCT FIELD AT R
+0.0                 ;DEC FIELD AT R
+0.0                 ;DDEC FIELD AT R
+150.                ;R IN mm
+0.960           ; 
+0.0
+0.0000
+0.00
+0.0
+300.
+1155.80             ;DISTANCE BETWEEN MAGNETS: checked 10/5/98 -jjl
+list                ;METHOD OF DETERMINING ENDPLANES
+y,610.4, 0. ,none,149.2,149.2,0.,0.,0.,0.
+y,675., 0. ,none,300.,300.,0.,0.,0.,0.
+y,1166.06, 0. ,none,300.,300.,0.,0.,0.,0.
+eol                 ;END OF list
+Q2entrance:*******************************************************8
+Q2ENTRAN            ;NAME OF THE REGION (CHAR*8)
+Q1EXIT__            ;NAME OF THE REFERENCE REGION (CHAR*8)
+0.,1155.80,0.,      ;ORIGIN OF REGION IN REFRENCE REGION: checked 10/5/98 -jjl
+0.,0.,0.,           ;ROTATIONS
+-300.,-10.,-300.    ;MINBOX X,Y,Z
+ 300., 920.,+300.   ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+7                   ;INDFI = ENTRANCE MULTIPOLE
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+6                   ;NUMBER OF ADDITIONAL DATA
+0.960              ; 
+0.0
+0.0000
+0.00
+0.0
+300.
+list                ;METHOD OF DETERMINING ENDPLANES
+y,915., 0. ,none,300.,300.,0.,0.,0.,0.
+eol                 ;END OF list
+Q2exit:****************************************************************9
+Q2EXIT__            ;NAME OF THE REGION (CHAR*8)
+Q2ENTRAN            ;NAME OF THE REFERENCE REGION (CHAR*8)
+0.,1826.6,0.,       ;ORIGIN OF REGION IN REFRENCE REGION: checked 10/5/98 -jjl
+0.,0.,0.,           ;ROTATIONS
+-450.,-920.,-300.   ;MINBOX X,Y,Z
+ 450., 860.,300.   ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+9                   ;INDFI = EXIT MULTIPOLE
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+6                   ;NUMBER OF ADDITIONAL DATA
+0.960             ; 
+0.0
+0.0000
+0.00
+0.00
+300.
+list                ;METHOD OF DETERMINING ENDPLANES
+y, 0., 0. ,none,300.,300.,0.,0.,0.,0.
+y,561.7, 0. ,none,300.,300.,0.,0.,0.,0.
+y,855., 0.,none,0.,0.,0.,0.,0.,0.
+eol
+QD DRIFT:***************************************************************10
+Q-D--DRI
+Q2EXIT__
+0.,4437.40,0.           ;: checked 10/5/98 -jjl
+-30.,0.,0.
+-1000., -3845.4646,-400.
+ 2220.18,  0., 400.
+1
+0
+0
+none
+r
+0.
+0
+list
+y,-3040.40, 30.,none, 259.81, 300., 1316.53, 0.,0.,0.
+y,-1500., 0.,none,0.,0.,0.,0.,0.,0.
+eol
+DIPOLE: ****************************************************************11    
+DIPOLMAG
+oldtargt
+-2460.3032, 15900.6973,0.   ;ORIGIN X,Y,Z: checked 10/5/98 -jjl
+75.000,0.,0.             ;ANGLES /Z,X,Y
+-7000.,-6000.,-200.   ;MIN BOX X,Y,Z
+2000., 5., 200.     ;MAX BOX
+3                       ;METHOD=RUNGE-KHUTA
+2                       ;TYPE=ANALYTICAL
+18                      ;INDEX=DIPOLE RAYTRACE STYLE
+comm_8.dat
+r
+-4.7760707                 ;FIELD MULTIP. FACTOR
+0                       ;# OF ADDITIONAL DATA
+list
+y,-26812.93, -75.,none,-6169.99,-5962.93,145.5,145.5,-145.5,-145.5
+y,15121.67, -105.,none,-5220.08,-4980.99,132.44,117.56,-132.44,-117.56
+y,0., 0.,none,-461.88,461.88,132.44,117.56,-132.44,-117.56
+eol
+DQOVERLAP:****************************************************************12     
+DQOVRLP 
+oldtargt
+-2460.3032, 15900.6973,0. ;ORIGIN X,Y,Z: checked 10/5/98 -jjl
+75.000,,0.,0.             ;ANGLES /Z,X,Y
+-1500., -10.,-300.   ;MIN BOX X,Y,Z
+1500., 1250., 300.     ;MAX BOX
+3                       ;METHOD=RUNGE-KHUTA
+2                       ;TYPE=ANALYTICAL
+14                      ;INDEX=DIPOLE QUAD OVERLAP
+comm_8.dat
+r
+-4.7760707             ;FIELD MULTIP. FACTOR
+10                       ;# OF ADDITIONAL DATA
+1.6                     ; NOT USED (FORMERLY B-FIELD)
+-30.000                  ; ANGLE BETWEEN DIP & QUAD AXES
+300.                    ; NOT USED (FORMERLY GAP)
+1.12752              ; QUAD FIELD :updated 10/5/98 was -.17886  -jjl
+0.00                    ; SEXT FIELD
+-.0000                  ; OCT  FIELD
+-0.000                  ; DEC FIELD
+-0.000                  ; DDEC FIELD
+300.                    ; QUAD RADIUS
+1591.0            ; DL=DISTANCE BETWEEN MAGNETS: checked 10/5/98 -jjl
+list
+y,1154.7, -30.,none,153.59,846.41,150.,150.,-150.,-150.
+eol
+Q3entrance:***************************************************************13
+Q3ENTRAN                 ;NAME OF THE REGION (CHAR*8)
+oldtargt                 ;NAME OF THE REFERENCE REGION (CHAR*8)
+-3585.3101,17025.7042,0. ;ORIGIN OF REGION IN REFRENCE REGION: checked 10/5/98 -jjl
+ 45.,0.,0.,             ;ROTATIONS
+-600.,-1200.,-300.    ;MINBOX X,Y,Z
+ 600., 920.,+300.   ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+7                   ;INDFI = ENTRANCE MULTIPOLE
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+6                   ;NUMBER OF ADDITIONAL DATA
+1.12752               ; QUAD FIELD :updated 10/5/98 was -.17886  -jjl
+0.00                    ; SEXT FIELD
+0.000                  ; OCT  FIELD
+00.000                     ; DEC FIELD
+00.000                  ; DDEC FIELD
+300.
+list                ;METHOD OF DETERMINING ENDPLANES
+y,-575.,0.,none,300.,300.,0.,0.,0.,0.
+y,915.,0.,none,300.,300.,0.,0.,0.,0.
+eol                 ;END OF list
+Q3exit:*****************************************************************14
+Q3EXIT__            ;NAME OF THE REGION (CHAR*8)
+Q3ENTRAN            ;NAME OF THE REFERENCE REGION (CHAR*8)
+0.,1826.8,0.,           ;ORIGIN OF REGION IN REFRENCE REGION: checked 10/5/98 -jjl
+0.,0.,0.,           ;ROTATIONS
+-700.,-920.,-300.   ;MINBOX X,Y,Z
+ 700., 1000.,300.   ;MAXBOX
+3                   ;METHOD = RUNGE-KHUTA
+2                   ;ITYPE = ANALYTIC
+9                   ;INDFI = EXIT MULTIPOLE
+none                ;FIELD FILENAME
+r
+1.0                 ;FIELD MULTIPLYING FACTOR
+6                   ;NUMBER OF ADDITIONAL DATA
+1.12752               ; QUAD FIELD :updated 10/5/98 was -.17886   -jjl
+0.00                    ; SEXT FIELD
+0.0000                  ; OCT  FIELD
+00.000                     ; DEC FIELD
+00.000                  ; DDEC FIELD
+300.
+list                ;METHOD OF DETERMINING ENDPLANES
+y,0., 0.,none, 300., 300.,0.,0.,0.,0.
+y,575., 0.,none,300.,300.,0.,0.,0.,0.
+y,850., 0.,none,0.,0.,0.,0.,0.,0.
+eol
+DRIFT:*****************************************************************15
+DRIFTDRI
+Q3EXIT__
+0.,3453.80,0.         ; updated 10/5/98 was 3450.48 -jjl
+0.,0.,0.
+-2500., -3463.880,-500.
+ 2500.,5100., 500.
+1
+0
+0
+none
+r
+0.
+0
+list
+y,0.,00.,none,0.,0.,0.,0.,0.,0.
+y,2500., 0.,none,0.,0.,0.,0.,0.,0.
+eol
+end*
+
